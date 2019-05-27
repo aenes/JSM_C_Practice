@@ -5,10 +5,9 @@
 #define BOARD_HEIGHT 15 // 보드 세로 크기
 #define BOARD_WIDTH 50 // 보드 가로 크기
 
+//게임 이름: 나도 히어로
+
 // 플랫폼 발판 만들기
-
-
-
 void Platform()
 {
 	int Game_Map[BOARD_HEIGHT][BOARD_WIDTH] = {
@@ -45,8 +44,55 @@ void Platform()
 	}
 }
 
+// 좌표 지정
+void gotoxy(int x, int y)
+{
+	COORD Pos;
+	Pos.X = x;
+	Pos.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
+}
+
+// 메인 화면
+void MainDisplay()
+{
+	int i;
+	int x = 9;
+	int y = 2;
+
+	gotoxy(x, y);
+	printf("┌");
+	for (i = 0; i < 99; i++)
+		printf("─");
+	printf("┐");
+	
+	for (i = 0; i < 24; i++)
+	{
+		y++;
+		gotoxy(x, y); // x= 9, y=2
+		printf("│");
+
+		if (i == 13)
+		{
+			gotoxy(50, i);
+			printf("~ 나도 히어로 ~");
+		}
+		gotoxy(109, y);
+		printf("│");
+	}
+	
+	gotoxy(x, y);
+	printf("└");
+	for (i = 0; i < 99; i++)
+		printf("─");
+	printf("┘");
+
+	
+}
+
 int main()
 {
-	Platform();
+	//Platform();
+	MainDisplay();
 	return 0;
 }
