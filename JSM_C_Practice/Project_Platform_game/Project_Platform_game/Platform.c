@@ -5,6 +5,9 @@
 #define BOARD_HEIGHT 15 // 보드 세로 크기
 #define BOARD_WIDTH 50 // 보드 가로 크기
 
+#define MAP_WIDTH 49
+#define MAP_HEIGTH 12
+
 //게임 이름: 나도 히어로
 
 // 플랫폼 발판 만들기
@@ -74,8 +77,8 @@ void MainDisplay()
 
 		if (i == 13)
 		{
-			gotoxy(50, i);
-			printf("~ 나도 히어로 ~");
+			gotoxy(49, i);
+			printf("∥    COMMAND WORLD!    ∥"); // 21size
 		}
 		gotoxy(109, y);
 		printf("│");
@@ -90,9 +93,26 @@ void MainDisplay()
 	
 }
 
+void title()
+{
+	MainDisplay();
+	gotoxy(MAP_WIDTH, MAP_HEIGTH);
+	printf("=========================="); //27
+	gotoxy(MAP_WIDTH, MAP_HEIGTH + 2);
+	printf("=========================="); //27
+	gotoxy(MAP_WIDTH, MAP_HEIGTH + 4);
+	printf("< PRESS ANY KEY TO START >"); //27
+
+	// 게임 조작키
+	// 이동키: wasd 점프 spacebar
+	// 공격: 마우스 좌클릭 방어: 마우스 우클릭
+	// 아이템 드롭: F
+}
+
 int main()
 {
 	//Platform();
-	MainDisplay();
+	//MainDisplay();
+	title();
 	return 0;
 }
