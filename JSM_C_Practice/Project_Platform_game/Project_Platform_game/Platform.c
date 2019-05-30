@@ -8,6 +8,36 @@
 #define MAP_WIDTH 49
 #define MAP_HEIGTH 12
 
+int Px = 12; //player x좌표
+int Py = 20; //player y좌표
+
+// 색상
+enum colors
+{
+	BLACK,
+	DARK_BLUE,
+	DARK_GREEN,
+	DARK_SKYBLUE,
+	DARK_RED,
+	DARK_VOILET,
+	DARK_YELLOE,
+	GREY,
+	DARK_GREY,
+	BLUE,
+	GREEN,
+	SKYBLUE,
+	RED,
+	VOILET,
+	YELLOW,
+	WHITE,
+};
+
+// 색상 함수
+void SetColor(int color)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+
 //게임 이름: 나도 히어로
 
 // 플랫폼 발판 만들기
@@ -109,10 +139,19 @@ void title()
 	// 아이템 드롭: F
 }
 
+void Player_Prompt()
+{
+	SetColor(DARK_BLUE);
+	gotoxy(Px, Py);
+	printf("'Ω'");
+
+}
+
 int main()
 {
 	//Platform();
 	//MainDisplay();
 	title();
+	Player_Prompt();
 	return 0;
 }
